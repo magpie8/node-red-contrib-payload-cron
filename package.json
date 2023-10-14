@@ -1,0 +1,19 @@
+{
+    "name": "node-red-contrib-payload-cron",
+    "version": "1.0.0",
+    "description": "CRON scheduler which takes the input of msg.payload as the CRON expression and outputs The Current Epoch Unix Timestamp when the cron job is triggered",
+    "keywords": ["node-red"],
+    "dependencies": {
+      "cron": "^1.1.0",
+      "cron-parser": "^1.1.0",
+        "node-red": ">=1.0.0"
+    },
+    "author": "magpie8",
+    "license": "MIT",
+    "node-red": {
+        "nodes": {
+            "payload-cron": "payload-cron.js"
+        }
+    }
+  }
+  

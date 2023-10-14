@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    // Register a new custom Node-RED node type called 'payload-cron'
+    RED.nodes.registerType('payload-cron', {
+        category: 'input', // Specify the category of the node (input in this case)
+        color: '#a6bbcf', // Set the color used to represent this node in the editor
+        defaults: {
+            name: { value: '' }, // Define default values for 'name' property
+            payload: { value: '' }, // Define default values for 'payload' property
+        },
+        inputs: 1, // Number of input connectors for the node
+        outputs: 1, // Number of output connectors for the node
+        icon: 'clock.png', // Specify the icon file path for the node
+        label: function () {
+            return this.name || 'Payload CRON'; // Define the label displayed on the node
+        },
+        oneditprepare: function () {
+            // Function to initialize the node properties when editing in the Node-RED editor
+            var cronInput = this._def.defaults.payload.value;
+            
+            // Populate the input field with the current cron expression
+            $('#node-input-payload').val(cronInput);
+        },
+        oneditsave: function () {
+            // Function to save the node properties when edited in the Node-RED editor
+            
+            // Save the edited value from the input field back to the 'payload' property
+            this._def.defaults.payload.value = $('#node-input-payload').val();
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="payload-cron">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- Include any additional CSS or JavaScript for customizing your node's appearance or behavior in the editor. -->
